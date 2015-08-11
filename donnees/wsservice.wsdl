@@ -1,0 +1,1292 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions name="ServiceWeb" targetNamespace="urn:clients"
+xmlns:typens="urn:service"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <message name="achatListerTousRequest">
+  </message>
+
+  <message name="achatListerTousResponse">
+    <part name="lstAchat" type="xsd:array"/>
+  </message>
+
+  <message name="achatListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="achatListerUnResponse">
+    <part name="achat" type="xsd:object"/>
+  </message>
+
+  <message name="achatModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="achat" type="xsd:object"/>
+  </message>
+
+  <message name="achatModifierUnResponse">
+  </message>
+
+  <message name="achatSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="achatSupprimerUnResponse">
+  </message>
+
+  <message name="demandeListeTousRequest">
+  </message>
+
+  <message name="demandeListeTousResponse">
+    <part name="lstDemande" type="xsd:array"/>
+  </message>
+
+  <message name="demandeListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="demandeListerUnResponse">
+    <part name="demande" type="xsd:object"/>
+  </message>
+
+  <message name="demandeModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="demande" type="xsd:object"/>
+  </message>
+
+  <message name="demandeModifierUnResponse">
+  </message>
+
+  <message name="demandeSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="demandeSupprimerUnResponse">
+  </message>
+
+  <message name="equipementListerTousRequest">
+  </message>
+
+  <message name="equipementListerTousResponse">
+    <part name="lstEquipement" type="xsd:array"/>
+  </message>
+
+  <message name="equipementListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementListerUnResponse">
+    <part name="Equipement" type="xsd:object"/>
+  </message>
+
+  <message name="equipementModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="equipement" type="xsd:object"/>
+  </message>
+
+  <message name="equipementModifierUnResponse">
+  </message>
+
+  <message name="equipementSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementSupprimerUnResponse">
+  </message>
+
+  <message name="equipementachatListerTousRequest">
+  </message>
+
+  <message name="equipementachatListerTousResponse">
+    <part name="lstEquipementachat" type="xsd:array"/>
+  </message>
+
+  <message name="equipementachatListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementachatListerUnResponse">
+    <part name="equipementachat" type="xsd:object"/>
+  </message>
+
+  <message name="equipementachatModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="equipementachat" type="xsd:object"/>
+  </message>
+
+  <message name="equipementachatModifierUnResponse">
+  </message>
+
+  <message name="equipementachatSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementachatSupprimerUnResponse">
+  </message>
+
+  <message name="equipementlocationListerTousRequest">
+  </message>
+
+  <message name="equipementlocationListerTousResponse">
+    <part name="lstEquipementlocation" type="xsd:array"/>
+  </message>
+
+  <message name="equipementlocationListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementlocationListerUnResponse">
+    <part name="equipementlocation" type="xsd:object"/>
+  </message>
+
+  <message name="equipementlocationModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="equipementlocation" type="xsd:object"/>
+  </message>
+
+  <message name="equipementlocationModifierUnResponse">
+  </message>
+
+  <message name="equipementlocationSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="equipementlocationSupprimerUnResponse">
+  </message>
+
+  <message name="etatListerTousRequest">
+  </message>
+
+  <message name="etatListerTousResponse">
+    <part name="lstEtat" type="xsd:array"/>
+  </message>
+
+  <message name="etatListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="etatListerUnResponse">
+    <part name="etat" type="xsd:object"/>
+  </message>
+
+  <message name="etatModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="etat" type="xsd:object"/>
+  </message>
+
+  <message name="etatModifierUnResponse">
+  </message>
+
+  <message name="etatSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="etatSupprimerUnResponse">
+  </message>
+
+  <message name="interventionListerTousRequest">
+  </message>
+
+  <message name="interventionListerTousResponse">
+    <part name="lstIntervention" type="xsd:array"/>
+  </message>
+
+  <message name="interventionListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="interventionListerUnResponse">
+    <part name="intervention" type="xsd:object"/>
+  </message>
+
+  <message name="interventionModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="intervention" type="xsd:object"/>
+  </message>
+
+  <message name="interventionModifierUnResponse">
+  </message>
+
+  <message name="interventionSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="interventionSupprimerUnResponse">
+  </message>
+
+  <message name="locationListerTousRequest">
+  </message>
+
+  <message name="locationListerTousResponse">
+    <part name="lstLocation" type="xsd:array"/>
+  </message>
+
+  <message name="locationListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="locationListerUnResponse">
+    <part name="location" type="xsd:object"/>
+  </message>
+
+  <message name="locationModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="location" type="xsd:object"/>
+  </message>
+
+  <message name="locationModifierUnResponse">
+  </message>
+
+  <message name="locationSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="locationSupprimerUnResponse">
+  </message>
+
+  <message name="possederListerTousRequest">
+  </message>
+
+  <message name="possederListerTousResponse">
+    <part name="lstPosseder" type="xsd:array"/>
+  </message>
+
+  <message name="possederListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="possederListerUnResponse">
+    <part name="posseder" type="xsd:object"/>
+  </message>
+
+  <message name="possederModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="posseder" type="xsd:object"/>
+  </message>
+
+  <message name="possederModifierUnResponse">
+  </message>
+
+  <message name="possederSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="possederSupprimerUnResponse">
+  </message>
+
+  <message name="secteurListerTousRequest">
+  </message>
+
+  <message name="secteurListerTousResponse">
+    <part name="lstSecteur" type="xsd:array"/>
+  </message>
+
+  <message name="secteurListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="secteurListerUnResponse">
+    <part name="secteur" type="xsd:object"/>
+  </message>
+
+  <message name="secteurModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="secteur" type="xsd:object"/>
+  </message>
+
+  <message name="secteurModifierUnResponse">
+  </message>
+
+  <message name="secteurSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="secteurSupprimerUnResponse">
+  </message>
+
+  <message name="societeListerTousRequest">
+  </message>
+
+  <message name="societeListerTousResponse">
+    <part name="lstSociete" type="xsd:array"/>
+  </message>
+
+  <message name="societeListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="societeListerUnResponse">
+    <part name="societe" type="xsd:object"/>
+  </message>
+
+  <message name="societeModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="societe" type="xsd:object"/>
+  </message>
+
+  <message name="societeModifierUnResponse">
+  </message>
+
+  <message name="societeSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="societeSupprimerUnResponse">
+  </message>
+
+  <message name="utilisateurListerTousRequest">
+  </message>
+
+  <message name="utilisateurListerTousResponse">
+    <part name="lstUtilisateur" type="xsd:array"/>
+  </message>
+
+  <message name="utilisateurListerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="utilisateurListerUnResponse">
+    <part name="utilisateur" type="xsd:object"/>
+  </message>
+
+  <message name="utilisateurModifierUnRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="utilisateur" type="xsd:object"/>
+  </message>
+
+  <message name="utilisateurModifierUnResponse">
+  </message>
+
+  <message name="utilisateurSupprimerUnRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="utilisateurSupprimerUnResponse">
+  </message>
+
+  <message name="achatAjouterUnRequest">
+    <part name="achat" type="xsd:object"/>
+  </message>
+
+  <message name="achatAjouterUnResponse">
+  </message>
+
+  <message name="demandeAjouterUnRequest">
+    <part name="demande" type="xsd:object"/>
+  </message>
+
+  <message name="demandeAjouterUnResponse">
+  </message>
+
+  <message name="equipementAjouterUnRequest">
+    <part name="equipement" type="xsd:object"/>
+  </message>
+
+  <message name="equipementAjouterUnResponse">
+  </message>
+
+  <message name="equipementachatAjouterUnRequest">
+    <part name="equipementachat" type="xsd:object"/>
+  </message>
+
+  <message name="equipementachatAjouterUnResponse">
+  </message>
+
+  <message name="equipementlocationAjouterUnRequest">
+    <part name="equipementlocation" type="xsd:object"/>
+  </message>
+
+  <message name="equipementlocationAjouterUnResponse">
+  </message>
+
+  <message name="etatAjouterUnRequest">
+    <part name="etat" type="xsd:object"/>
+  </message>
+
+  <message name="etatAjouterUnResponse">
+  </message>
+
+  <message name="interventionAjouterUnRequest">
+    <part name="intervention" type="xsd:object"/>
+  </message>
+
+  <message name="interventionAjouterUnResponse">
+  </message>
+
+  <message name="locationAjouterUnRequest">
+    <part name="location" type="xsd:object"/>
+  </message>
+
+  <message name="locationAjouterUnResponse">
+  </message>
+
+  <message name="possederAjouterUnRequest">
+    <part name="posseder" type="xsd:object"/>
+  </message>
+
+  <message name="possederAjouterUnResponse">
+  </message>
+
+  <message name="secteurAjouterUnRequest">
+    <part name="secteur" type="xsd:object"/>
+  </message>
+
+  <message name="secteurAjouterUnResponse">
+  </message>
+
+  <message name="societeAjouterUnRequest">
+    <part name="societe" type="xsd:object"/>
+  </message>
+
+  <message name="societeAjouterUnResponse">
+  </message>
+
+  <message name="utilisateurAjouterUnRequest">
+    <part name="utilisateur" type="xsd:object"/>
+  </message>
+
+  <message name="utilisateurAjouterUnResponse">
+  </message>
+
+  <portType name="ClientsPortType">
+    <operation name="achatListerTous">
+      <input message="typens:achatListerTousRequest"/>
+      <output message="typens:achatListerTousResponse"/>
+    </operation>
+    <operation name="achatListerUn">
+      <input message="typens:achatListerUnRequest"/>
+      <output message="typens:achatListerUnResponse"/>
+    </operation>
+    <operation name="achatModifierUn">
+      <input message="typens:achatModifierUnRequest"/>
+      <output message="typens:achatModifierUnResponse"/>
+    </operation>
+    <operation name="achatSupprimerUn">
+      <input message="typens:achatSupprimerUnRequest"/>
+      <output message="typens:achatSupprimerUnResponse"/>
+    </operation>
+    <operation name="demandeListeTous">
+      <input message="typens:demandeListeTousRequest"/>
+      <output message="typens:demandeListeTousResponse"/>
+    </operation>
+    <operation name="demandeListerUn">
+      <input message="typens:demandeListerUnRequest"/>
+      <output message="typens:demandeListerUnResponse"/>
+    </operation>
+    <operation name="demandeModifierUn">
+      <input message="typens:demandeModifierUnRequest"/>
+      <output message="typens:demandeModifierUnResponse"/>
+    </operation>
+    <operation name="demandeSupprimerUn">
+      <input message="typens:demandeSupprimerUnRequest"/>
+      <output message="typens:demandeSupprimerUnResponse"/>
+    </operation>
+    <operation name="equipementListerTous">
+      <input message="typens:equipementListerTousRequest"/>
+      <output message="typens:equipementListerTousResponse"/>
+    </operation>
+    <operation name="equipementListerUn">
+      <input message="typens:equipementListerUnRequest"/>
+      <output message="typens:equipementListerUnResponse"/>
+    </operation>
+    <operation name="equipementModifierUn">
+      <input message="typens:equipementModifierUnRequest"/>
+      <output message="typens:equipementModifierUnResponse"/>
+    </operation>
+    <operation name="equipementSupprimerUn">
+      <input message="typens:equipementSupprimerUnRequest"/>
+      <output message="typens:equipementSupprimerUnResponse"/>
+    </operation>
+    <operation name="equipementachatListerTous">
+      <input message="typens:equipementachatListerTousRequest"/>
+      <output message="typens:equipementachatListerTousResponse"/>
+    </operation>
+    <operation name="equipementachatListerUn">
+      <input message="typens:equipementachatListerUnRequest"/>
+      <output message="typens:equipementachatListerUnResponse"/>
+    </operation>
+    <operation name="equipementachatModifierUn">
+      <input message="typens:equipementachatModifierUnRequest"/>
+      <output message="typens:equipementachatModifierUnResponse"/>
+    </operation>
+    <operation name="equipementachatSupprimerUn">
+      <input message="typens:equipementachatSupprimerUnRequest"/>
+      <output message="typens:equipementachatSupprimerUnResponse"/>
+    </operation>
+    <operation name="equipementlocationListerTous">
+      <input message="typens:equipementlocationListerTousRequest"/>
+      <output message="typens:equipementlocationListerTousResponse"/>
+    </operation>
+    <operation name="equipementlocationListerUn">
+      <input message="typens:equipementlocationListerUnRequest"/>
+      <output message="typens:equipementlocationListerUnResponse"/>
+    </operation>
+    <operation name="equipementlocationModifierUn">
+      <input message="typens:equipementlocationModifierUnRequest"/>
+      <output message="typens:equipementlocationModifierUnResponse"/>
+    </operation>
+    <operation name="equipementlocationSupprimerUn">
+      <input message="typens:equipementlocationSupprimerUnRequest"/>
+      <output message="typens:equipementlocationSupprimerUnResponse"/>
+    </operation>
+    <operation name="etatListerTous">
+      <input message="typens:etatListerTousRequest"/>
+      <output message="typens:etatListerTousResponse"/>
+    </operation>
+    <operation name="etatListerUn">
+      <input message="typens:etatListerUnRequest"/>
+      <output message="typens:etatListerUnResponse"/>
+    </operation>
+    <operation name="etatModifierUn">
+      <input message="typens:etatModifierUnRequest"/>
+      <output message="typens:etatModifierUnResponse"/>
+    </operation>
+    <operation name="etatSupprimerUn">
+      <input message="typens:etatSupprimerUnRequest"/>
+      <output message="typens:etatSupprimerUnResponse"/>
+    </operation>
+    <operation name="interventionListerTous">
+      <input message="typens:interventionListerTousRequest"/>
+      <output message="typens:interventionListerTousResponse"/>
+    </operation>
+    <operation name="interventionListerUn">
+      <input message="typens:interventionListerUnRequest"/>
+      <output message="typens:interventionListerUnResponse"/>
+    </operation>
+    <operation name="interventionModifierUn">
+      <input message="typens:interventionModifierUnRequest"/>
+      <output message="typens:interventionModifierUnResponse"/>
+    </operation>
+    <operation name="interventionSupprimerUn">
+      <input message="typens:interventionSupprimerUnRequest"/>
+      <output message="typens:interventionSupprimerUnResponse"/>
+    </operation>
+    <operation name="possederListerTous">
+      <input message="typens:possederListerTousRequest"/>
+      <output message="typens:possederListerTousResponse"/>
+    </operation>
+    <operation name="possederListerUn">
+      <input message="typens:possederListerUnRequest"/>
+      <output message="typens:possederListerUnResponse"/>
+    </operation>
+    <operation name="possederModifierUn">
+      <input message="typens:possederModifierUnRequest"/>
+      <output message="typens:possederModifierUnResponse"/>
+    </operation>
+    <operation name="possederSupprimerUn">
+      <input message="typens:possederSupprimerUnRequest"/>
+      <output message="typens:possederSupprimerUnResponse"/>
+    </operation>
+    <operation name="secteurListerTous">
+      <input message="typens:secteurListerTousRequest"/>
+      <output message="typens:secteurListerTousResponse"/>
+    </operation>
+    <operation name="secteurListerUn">
+      <input message="typens:secteurListerUnRequest"/>
+      <output message="typens:secteurListerUnResponse"/>
+    </operation>
+    <operation name="secteurModifierUn">
+      <input message="typens:secteurModifierUnRequest"/>
+      <output message="typens:secteurModifierUnResponse"/>
+    </operation>
+    <operation name="secteurSupprimerUn">
+      <input message="typens:secteurSupprimerUnRequest"/>
+      <output message="typens:secteurSupprimerUnResponse"/>
+    </operation>
+    <operation name="societeListerTous">
+      <input message="typens:societeListerTousRequest"/>
+      <output message="typens:societeListerTousResponse"/>
+    </operation>
+    <operation name="societeListerUn">
+      <input message="typens:societeListerUnRequest"/>
+      <output message="typens:societeListerUnResponse"/>
+    </operation>
+    <operation name="societeModifierUn">
+      <input message="typens:societeModifierUnRequest"/>
+      <output message="typens:societeModifierUnResponse"/>
+    </operation>
+    <operation name="societeSupprimerUn">
+      <input message="typens:societeSupprimerUnRequest"/>
+      <output message="typens:societeSupprimerUnResponse"/>
+    </operation>
+    <operation name="utilisateurListerTous">
+      <input message="typens:utilisateurListerTousRequest"/>
+      <output message="typens:utilisateurListerTousResponse"/>
+    </operation>
+    <operation name="utilisateurListerUn">
+      <input message="typens:utilisateurListerUnRequest"/>
+      <output message="typens:utilisateurListerUnResponse"/>
+    </operation>
+    <operation name="utilisateurModifierUn">
+      <input message="typens:utilisateurModifierUnRequest"/>
+      <output message="typens:utilisateurModifierUnResponse"/>
+    </operation>
+    <operation name="utilisateurSupprimerUn">
+      <input message="typens:utilisateurSupprimerUnRequest"/>
+      <output message="typens:utilisateurSupprimerUnResponse"/>
+    </operation>
+    <operation name="achatAjouterUn">
+      <input message="typens:achatAjouterUnRequest"/>
+      <output message="typens:achatAjouterUnResponse"/>
+    </operation>
+    <operation name="demandeAjouterUn">
+      <input message="typens:demandeAjouterUnRequest"/>
+      <output message="typens:demandeAjouterUnResponse"/>
+    </operation>
+    <operation name="equipementAjouterUn">
+      <input message="typens:equipementAjouterUnRequest"/>
+      <output message="typens:equipementAjouterUnResponse"/>
+    </operation>
+    <operation name="equipementachatAjouterUn">
+      <input message="typens:equipementachatAjouterUnRequest"/>
+      <output message="typens:equipementachatAjouterUnResponse"/>
+    </operation>
+    <operation name="equipementlocationAjouterUn">
+      <input message="typens:equipementlocationAjouterUnRequest"/>
+      <output message="typens:equipementlocationAjouterUnResponse"/>
+    </operation>
+    <operation name="etatAjouterUn">
+      <input message="typens:etatAjouterUnRequest"/>
+      <output message="typens:etatAjouterUnResponse"/>
+    </operation>
+    <operation name="interventionAjouterUn">
+      <input message="typens:interventionAjouterUnRequest"/>
+      <output message="typens:interventionAjouterUnResponse"/>
+    </operation>
+    <operation name="possederAjouterUn">
+      <input message="typens:possederAjouterUnRequest"/>
+      <output message="typens:possederAjouterUnResponse"/>
+    </operation>
+    <operation name="secteurAjouterUn">
+      <input message="typens:secteurAjouterUnRequest"/>
+      <output message="typens:secteurAjouterUnResponse"/>
+    </operation>
+    <operation name="societeAjouterUn">
+      <input message="typens:societeAjouterUnRequest"/>
+      <output message="typens:societeAjouterUnResponse"/>
+    </operation>
+    <operation name="utilisateurAjouterUn">
+      <input message="typens:utilisateurAjouterUnRequest"/>
+      <output message="typens:utilisateurAjouterUnResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="ClientsBinding" type="typens:ClientsPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="achatListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="achatListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="achatModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="achatSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="demandeListeTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="demandeListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="demandeModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="demandeSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementachatListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementachatListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementachatModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementachatSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementlocationListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementlocationListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementlocationModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementlocationSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="etatListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="etatListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="etatModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="etatSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="interventionListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="interventionListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="interventionModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="interventionSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="possederListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="possederListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="possederModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="possederSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="secteurListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="secteurListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="secteurModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="secteurSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="societeListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="societeListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="societeModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="societeSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="utilisateurListerTous">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="utilisateurListerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="utilisateurModifierUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="utilisateurSupprimerUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="achatAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="demandeAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementachatAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="equipementlocationAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="etatAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="interventionAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="possederAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="secteurAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="societeAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="utilisateurAjouterUn">
+      <soap:operation soapAction="urn:ClientsAction"/>
+      <input>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body namespace="urn:clients" use="encoded"
+              encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="WSClients">
+    <port name="ClientsPortType" binding="typens:ClientsBinding">
+      <soap:address location="http://localhost/eclipse_projets/WebService/donnees/serverSOAP.php"/>
+    </port>
+  </service>
+</definitions>

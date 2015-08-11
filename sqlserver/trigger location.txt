@@ -1,0 +1,132 @@
+USE [ppe1]
+GO
+/****** Object:  Trigger [dbo].[deleteequipementlocation]    Script Date: 3/31/2014 1:43:09 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER TRIGGER [dbo].[deleteequipementlocation]
+ON [dbo].[EquipementLocation]
+INSTEAD OF DELETE
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+-- Insert statements for trigger here
+DECLARE @id int
+SELECT @id=deleted.idEquipement FROM deleted
+DELETE FROM Location WHERE Location.idEquipement=@id
+DELETE FROM Equipement WHERE Equipement.idEquipement=@id
+END
+
+
+
+
+
+USE [ppe1]
+GO
+/****** Object:  Trigger [dbo].[insertequipementlocation]    Script Date: 3/31/2014 1:43:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER TRIGGER [dbo].[insertequipementlocation]
+ON [dbo].[EquipementLocation] INSTEAD OF INSERT
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+-- Insert statements for trigger here
+
+DECLARE @idUtilisateur int
+DECLARE @processeur varchar(128)
+DECLARE @memoire varchar(128)
+DECLARE @disque varchar(128)
+DECLARE @logiciels varchar(128)
+DECLARE @typemateriel varchar(128)
+DECLARE @idSociete smallint 
+DECLARE @duree smallint 
+DECLARE @datedebut datetime
+DECLARE @datefin datetime
+DECLARE @datepreetude datetime
+DECLARE @dateprerapport datetime
+DECLARE @datecahiercharge datetime 
+
+SELECT @idUtilisateur=inserted.idUtilisateur, @processeur=inserted.processeur, @memoire=inserted.memoire, @disque=inserted.disque, @logiciels=inserted.logiciels, @typemateriel=inserted.typemateriel, @idSociete=inserted.idSociete, @duree=inserted.duree, @datedebut=inserted.datedebut, @datefin=inserted.datefin, @datepreetude=inserted.datepreetude, @dateprerapport=inserted.dateprerapport, @datecahiercharge=inserted.datecahiercharge FROM inserted 
+
+INSERT INTO Equipement (Equipement.idUtilisateur, Equipement.processeur, Equipement.memoire, Equipement.disque, Equipement.logiciels, Equipement.typemateriel) VALUES(@idUtilisateur, @processeur, @memoire, @disque, @logiciels, @typemateriel)
+INSERT INTO Location (Location.idEquipement, Location.idSociete, Location.duree, Location.datedebut, Location.datefin, Location.datepreetude, Location.dateprerapport, Location.datecahiercharge) VALUES(@@identity, @idSociete, @duree, @datedebut, @datefin, @datepreetude, @dateprerapport, @datecahiercharge)
+END
+
+
+
+
+
+
+USE [ppe1]
+GO
+/****** Object:  Trigger [dbo].[updateequipementlocation]    Script Date: 3/31/2014 1:43:37 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER TRIGGER [dbo].[updateequipementlocation]
+ON [dbo].[EquipementLocation] INSTEAD OF UPDATE
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+-- Insert statements for trigger here
+DECLARE @id int
+DECLARE @idUtilisateur int
+DECLARE @processeur varchar(128)
+DECLARE @memoire varchar(128)
+DECLARE @disque varchar(128)
+DECLARE @logiciels varchar(128)
+DECLARE @typemateriel varchar(128)
+DECLARE @idSociete smallint
+DECLARE @duree smallint
+DECLARE @datedebut datetime
+DECLARE @datefin datetime
+DECLARE @datepreetude datetime
+DECLARE @dateprerapport datetime
+DECLARE @datecahiercharge datetime 
+SELECT @id=inserted.idEquipement, @idUtilisateur=inserted.idUtilisateur, 
+@processeur=inserted.processeur, @memoire=inserted.memoire,
+@disque=inserted.disque, @logiciels=inserted.logiciels,
+@typemateriel=inserted.typemateriel, @idSociete=inserted.idSociete,
+@duree=inserted.duree, @datedebut=inserted.datedebut,
+@datefin=inserted.datefin, @datepreetude=inserted.datepreetude,
+@dateprerapport=inserted.dateprerapport, @datecahiercharge=inserted.datecahiercharge FROM inserted
+UPDATE Equipement SET Equipement.idUtilisateur=@idUtilisateur,
+Equipement.processeur=@processeur,
+Equipement.memoire=@memoire,
+Equipement.disque=@disque,
+Equipement.logiciels=@logiciels,
+Equipement.typemateriel=@typemateriel WHERE Equipement.idEquipement=@id
+UPDATE Location SET Location.idSociete=@idSociete,
+Location.duree=@duree,
+Location.datedebut=@datedebut,
+Location.datefin=@datefin,
+Location.datepreetude=@datepreetude,
+Location.dateprerapport=@dateprerapport,
+Location.datecahiercharge=@datecahiercharge WHERE Location.idEquipement=@id
+END

@@ -1,0 +1,567 @@
+USE [ppe1]
+GO
+/****** Object:  Table [dbo].[Achat]    Script Date: 3/31/2014 1:38:26 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Achat](
+	[idEquipement] [smallint] NOT NULL,
+	[dateachat] [datetime] NULL,
+ CONSTRAINT [pk_achat] PRIMARY KEY CLUSTERED 
+(
+	[idEquipement] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Demande]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Demande](
+	[idDemande] [smallint] IDENTITY(1,1) NOT NULL,
+	[idEquipement] [smallint] NOT NULL,
+	[idUtilisateur] [int] NOT NULL,
+	[motif] [varchar](128) NULL,
+	[datedemande] [datetime] NULL,
+ CONSTRAINT [pk_demande] PRIMARY KEY CLUSTERED 
+(
+	[idDemande] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Equipement]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Equipement](
+	[idEquipement] [smallint] IDENTITY(1,1) NOT NULL,
+	[idUtilisateur] [int] NOT NULL,
+	[processeur] [varchar](128) NULL,
+	[memoire] [varchar](128) NULL,
+	[disque] [varchar](128) NULL,
+	[logiciels] [varchar](128) NULL,
+	[typemateriel] [varchar](128) NULL,
+ CONSTRAINT [pk_equipement] PRIMARY KEY CLUSTERED 
+(
+	[idEquipement] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Etat]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Etat](
+	[idEtat] [smallint] IDENTITY(1,1) NOT NULL,
+	[libelle] [varchar](128) NULL,
+ CONSTRAINT [pk_etat] PRIMARY KEY CLUSTERED 
+(
+	[idEtat] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Intervention]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Intervention](
+	[idIntervention] [smallint] IDENTITY(1,1) NOT NULL,
+	[idDemande] [smallint] NOT NULL,
+	[datedebut] [datetime] NULL,
+	[dureetotale] [datetime] NULL,
+ CONSTRAINT [pk_intervention] PRIMARY KEY CLUSTERED 
+(
+	[idIntervention] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Location]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Location](
+	[idEquipement] [smallint] NOT NULL,
+	[idSociete] [smallint] NOT NULL,
+	[duree] [smallint] NULL,
+	[datedebut] [datetime] NULL,
+	[datefin] [datetime] NULL,
+	[datepreetude] [datetime] NULL,
+	[dateprerapport] [datetime] NULL,
+	[datecahiercharge] [datetime] NULL,
+ CONSTRAINT [pk_location] PRIMARY KEY CLUSTERED 
+(
+	[idEquipement] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Posseder]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Posseder](
+	[idEtat] [smallint] NOT NULL,
+	[idIntervention] [smallint] NOT NULL,
+	[commentaire] [text] NULL,
+ CONSTRAINT [pk_posseder] PRIMARY KEY CLUSTERED 
+(
+	[idEtat] ASC,
+	[idIntervention] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Secteur]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Secteur](
+	[idSecteur] [smallint] IDENTITY(1,1) NOT NULL,
+	[libelle] [varchar](128) NULL,
+	[nomregion] [varchar](128) NULL,
+ CONSTRAINT [pk_secteur] PRIMARY KEY CLUSTERED 
+(
+	[idSecteur] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Societe]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Societe](
+	[idSociete] [smallint] IDENTITY(1,1) NOT NULL,
+	[nom] [char](32) NULL,
+	[capital] [smallint] NULL,
+	[adresse] [text] NULL,
+	[codepostal] [char](5) NULL,
+	[ville] [text] NULL,
+	[villercs] [text] NULL,
+	[numerorcs] [varchar](128) NULL,
+	[nomrepresentant] [text] NULL,
+	[qualiterepresentant] [text] NULL,
+ CONSTRAINT [pk_societe] PRIMARY KEY CLUSTERED 
+(
+	[idSociete] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Utilisateur]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Utilisateur](
+	[idUtilisateur] [int] IDENTITY(1,1) NOT NULL,
+	[idSecteur] [smallint] NOT NULL,
+	[nom] [char](32) NULL,
+	[prenom] [char](32) NULL,
+	[adresse] [char](32) NULL,
+	[codepostal] [char](32) NULL,
+	[ville] [char](32) NULL,
+	[fonction] [char](32) NULL,
+	[dateembauche] [char](32) NULL,
+	[email] [varchar](128) NULL,
+	[matricule] [varchar](128) NULL,
+	[niveauacces] [varchar](128) NULL,
+	[motdepasse] [varchar](50) NULL,
+ CONSTRAINT [pk_utilisateur] PRIMARY KEY CLUSTERED 
+(
+	[idUtilisateur] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  View [dbo].[EquipementAchat]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+/* -----------------------------------------------------------------------------
+      vue sql : equipement_achat
+----------------------------------------------------------------------------- */
+CREATE VIEW [dbo].[EquipementAchat]
+AS
+SELECT        dbo.Equipement.idEquipement, dbo.Equipement.idUtilisateur, dbo.Equipement.processeur, dbo.Equipement.memoire, dbo.Equipement.disque, 
+                         dbo.Equipement.logiciels, dbo.Equipement.typemateriel, dbo.Achat.dateachat
+FROM            dbo.Equipement INNER JOIN
+                         dbo.Achat ON dbo.Equipement.idEquipement = dbo.Achat.idEquipement
+
+GO
+/****** Object:  View [dbo].[EquipementLocation]    Script Date: 3/31/2014 1:38:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+/* -----------------------------------------------------------------------------
+      vue sql : equipement_location
+----------------------------------------------------------------------------- */
+CREATE VIEW [dbo].[EquipementLocation]
+AS
+SELECT        dbo.Equipement.idEquipement, dbo.Equipement.idUtilisateur, dbo.Equipement.processeur, dbo.Equipement.memoire, dbo.Equipement.disque, 
+                         dbo.Equipement.logiciels, dbo.Equipement.typemateriel, dbo.Location.idSociete, dbo.Location.duree, dbo.Location.datedebut, dbo.Location.datefin, 
+                         dbo.Location.datepreetude, dbo.Location.dateprerapport, dbo.Location.datecahiercharge
+FROM            dbo.Equipement INNER JOIN
+                         dbo.Location ON dbo.Equipement.idEquipement = dbo.Location.idEquipement
+
+GO
+ALTER TABLE [dbo].[Achat]  WITH CHECK ADD  CONSTRAINT [fk_achat_equipement] FOREIGN KEY([idEquipement])
+REFERENCES [dbo].[Equipement] ([idEquipement])
+GO
+ALTER TABLE [dbo].[Achat] CHECK CONSTRAINT [fk_achat_equipement]
+GO
+ALTER TABLE [dbo].[Demande]  WITH CHECK ADD  CONSTRAINT [fk_demande_equipement] FOREIGN KEY([idEquipement])
+REFERENCES [dbo].[Equipement] ([idEquipement])
+GO
+ALTER TABLE [dbo].[Demande] CHECK CONSTRAINT [fk_demande_equipement]
+GO
+ALTER TABLE [dbo].[Demande]  WITH CHECK ADD  CONSTRAINT [fk_demande_utilisateur] FOREIGN KEY([idUtilisateur])
+REFERENCES [dbo].[Utilisateur] ([idUtilisateur])
+GO
+ALTER TABLE [dbo].[Demande] CHECK CONSTRAINT [fk_demande_utilisateur]
+GO
+ALTER TABLE [dbo].[Equipement]  WITH CHECK ADD  CONSTRAINT [fk_equipement_utilisateur] FOREIGN KEY([idUtilisateur])
+REFERENCES [dbo].[Utilisateur] ([idUtilisateur])
+GO
+ALTER TABLE [dbo].[Equipement] CHECK CONSTRAINT [fk_equipement_utilisateur]
+GO
+ALTER TABLE [dbo].[Intervention]  WITH CHECK ADD  CONSTRAINT [fk_intervention_demande] FOREIGN KEY([idDemande])
+REFERENCES [dbo].[Demande] ([idDemande])
+GO
+ALTER TABLE [dbo].[Intervention] CHECK CONSTRAINT [fk_intervention_demande]
+GO
+ALTER TABLE [dbo].[Location]  WITH CHECK ADD  CONSTRAINT [fk_location_equipement] FOREIGN KEY([idEquipement])
+REFERENCES [dbo].[Equipement] ([idEquipement])
+GO
+ALTER TABLE [dbo].[Location] CHECK CONSTRAINT [fk_location_equipement]
+GO
+ALTER TABLE [dbo].[Location]  WITH CHECK ADD  CONSTRAINT [fk_location_societe] FOREIGN KEY([idSociete])
+REFERENCES [dbo].[Societe] ([idSociete])
+GO
+ALTER TABLE [dbo].[Location] CHECK CONSTRAINT [fk_location_societe]
+GO
+ALTER TABLE [dbo].[Posseder]  WITH CHECK ADD  CONSTRAINT [fk_posseder_etat] FOREIGN KEY([idEtat])
+REFERENCES [dbo].[Etat] ([idEtat])
+GO
+ALTER TABLE [dbo].[Posseder] CHECK CONSTRAINT [fk_posseder_etat]
+GO
+ALTER TABLE [dbo].[Posseder]  WITH CHECK ADD  CONSTRAINT [fk_posseder_intervention] FOREIGN KEY([idIntervention])
+REFERENCES [dbo].[Intervention] ([idIntervention])
+GO
+ALTER TABLE [dbo].[Posseder] CHECK CONSTRAINT [fk_posseder_intervention]
+GO
+ALTER TABLE [dbo].[Utilisateur]  WITH CHECK ADD  CONSTRAINT [fk_utilisateur_secteur] FOREIGN KEY([idSecteur])
+REFERENCES [dbo].[Secteur] ([idSecteur])
+GO
+ALTER TABLE [dbo].[Utilisateur] CHECK CONSTRAINT [fk_utilisateur_secteur]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Equipement"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 135
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Achat"
+            Begin Extent = 
+               Top = 6
+               Left = 246
+               Bottom = 101
+               Right = 416
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'EquipementAchat'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'EquipementAchat'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Equipement"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 135
+               Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Location"
+            Begin Extent = 
+               Top = 6
+               Left = 246
+               Bottom = 135
+               Right = 426
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 15
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'EquipementLocation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'EquipementLocation'
+GO

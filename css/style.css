@@ -1,0 +1,316 @@
+/* 
+    Document   : style
+    Created on : 17 déc. 2013, 11:00:24
+    Author     : sempai31
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+    Corps de page
+*/
+body {
+    margin: auto;
+    font: 14px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    background-image: url("../images/fond.JPG");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding:0px;
+}
+
+select{
+    width: 154px;
+    height: 24px;
+    overflow: hidden;
+    color:#aa4400;
+    border: 2px solid #000;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    box-shadow: 2px 2px 4px #000;
+    border-radius:4px;
+}
+
+hr {
+  height: 2px;
+  padding: 0;
+  color: #F00;
+  margin-top: 15px;
+  background-color: #F00;
+  box-shadow: 2px 2px 4px #000;
+  border: 0;
+}
+
+.titreCentre{
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px #666;
+    color:#aa4400;
+}
+
+.divZoneGauche {
+    width:150px;
+    height:310px;
+    float:left;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 2px #ee8844;
+}
+
+.divZoneOmbre {
+    width:820px;
+    height:310px;
+    border:2px solid #993300;
+    border-radius:8px;
+    background: #FFE8BD;
+    box-shadow: 2px 2px 4px #993300;
+    padding: 5px;
+    overflow:scroll;
+    overflow-x: hidden;
+    margin-left: 160px;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    /*text-shadow: 1px 1px 2px #ee8844;*/
+}
+
+.divDisponible {
+    margin-top: 5px;
+    margin-left: 190px;
+    width:110px;
+    background-color: #44cc44;
+    color:#000;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    border:2px solid #000;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #000;
+}
+
+.divNonDisponible {
+    margin-top: 5px;
+    width:110px;
+    background-color: #ff6600;
+    color:#000;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    border:2px solid #000;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #000;
+}
+
+/**         ZONE PRINCIPALE DE LA PAGE          **/
+.divCorps{
+    width: 1024px;
+    /*height: 1024px;*/
+    margin: auto;
+    /*background: #fff;
+    opacity: 0.55;*/
+    /*border: 1px solid #000;*/
+}
+
+/**         DIV ENTETE DE CONNEXION         **/
+.divConnexion{
+    width: 628px;
+    height: 40px;
+    margin: auto;
+    background: #FFB4AD;
+    /*border: 1px solid #000;*/
+    box-shadow: 2px 2px 4px #000;
+    border-radius:8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    color:#AA4400;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    padding-top: 15px;
+    padding-left: 400px;
+}
+
+.divConnexion a{
+    color:#aa4400;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+}
+
+.formConnect{    
+    margin-left: -50px;
+    font-weight:bold;
+    /*display: none;*/
+}
+
+.btnConnect{
+    background:#ff6600;
+    color:#fff;
+    width:150px;
+    margin-top: 0px;
+    margin-left: 860px;
+    border-radius:8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border:2px solid #fff;
+    box-shadow: 2px 2px 4px #000;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    padding:5px; 
+    cursor:  pointer;
+    text-align: center;
+}
+
+.btnEspacePerso{
+    background:#ff6600;
+    color:#fff;
+    width:150px;
+    margin-top: 0px;
+    margin-left: 860px;
+    border-radius:8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border:2px solid #fff;
+    box-shadow: 2px 2px 4px #000;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    padding:5px; 
+    cursor:  pointer;
+    text-align: center;
+}
+
+.btnEspacePerso a{
+    color:#fff;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}    
+
+.boutonConnexion{
+    background:#AA4400;
+    color:#fff;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    box-shadow: 2px 2px 4px #000;
+    border-radius:4px;
+    border:2px solid #000;
+    font-weight:bold;
+    cursor:  pointer;
+}
+
+.zoneSaisie{
+    background:#fff;
+    color:#aa4400;
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    box-shadow: 2px 2px 4px #000;
+    border-radius:4px;
+}
+
+/**         ZONE IMAGE TITRE           **/
+.divTitreSite{
+    background-image: url("../images/titre.png");
+    width: 1024px;
+    height: 110px;
+    margin: auto;
+    margin-top: 15px;
+    /*border-radius:8px;
+    box-shadow: 2px 2px 4px #000;
+    border:2px solid #fff;*/
+}
+
+/**         Le MENU         **/
+.divMenu{
+    background: #F62423;
+    width: 1009px;
+    height: 35px;
+    margin: auto;
+    margin-top: 15px;
+    border-radius:8px;
+    box-shadow: 2px 2px 4px #000;
+    color:#FFFFFF;
+    font: 16px/16px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    border:2px solid #fff;
+    padding-left: 15px;
+    padding-top: 14px;
+    list-style:none;
+}
+
+.divMenuA{
+    /*background: #ff9933;*/
+    float:left;
+    margin-top: -14px;
+    padding-top: 14px;
+    padding-left: 5px;
+    height:35px;
+    width:158px;
+    color:#FFFFFF;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    text-align: center;
+    text-decoration:none;
+    
+    border-left: 1px dotted #662200;
+    border-right: 1px dotted #662200;
+}
+
+.divMenuA a{
+    color:#FFFFFF;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.divMenuA a:hover{
+    color:#000000;
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+/**         Zone d'affichage de la page         **/
+.divZonePage{
+    background: #fff;
+    width: 994px;
+    /*height: 1000px;*/
+    margin: auto;
+    margin-top: 15px;
+    border-radius:8px;
+    box-shadow: 2px 2px 4px #000;
+    padding:15px;
+    border:2px solid #000;
+    font: 16px/16px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    color:#000;
+}
+
+.divZonePage h2{
+    font: 20px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color:#aa4400;
+}
+
+.divZonePage h3{
+    font: 16px/16px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    font-style: italic;
+    color:#aa4400;
+}
+
+.divZonePage h4{
+    font: 13px/13px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    color:#000;
+}
+
+.divZonePage a{
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    color:#aa4400;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.divZonePage a:hover{
+    font: 14px/14px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    color:#aa4400;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#infos{
+    
+}
+
+#lemail{
+    
+}

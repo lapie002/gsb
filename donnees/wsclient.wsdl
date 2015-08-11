@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<definitions name="ServiceJours" targetNamespace="urn:clients" 
+xmlns:typens="urn:client" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<message name="listerTousRequest">
+</message>
+<message name="listerTousResponse">
+  <part name="clients" type="xsd:array"/>
+</message>
+
+<message name="listerUnRequest">
+	<part name="id" type="xsd:int"/>
+</message>
+<message name="listerUnResponse">
+	<part name="client" type="xsd:object"/>
+</message>
+
+ <message name="ajouterUnRequest">
+   <part name="nom" type="xsd:string"/>
+   <part name="cp" type="xsd:string"/>
+ </message>
+<message name="ajouterUnResponse">
+</message>
+
+ <message name="supprimerUnRequest">
+   <part name="id" type="xsd:int"/>
+ </message>
+ <message name="supprimerUnResponse">
+ </message>
+
+ <message name="modifierUnRequest">
+   <part name="id" type="xsd:int"/>
+   <part name="nom" type="xsd:string"/>
+   <part name="cp" type="xsd:string"/>
+ </message>
+ <message name="modifierUnResponse">
+ </message>
+  
+  
+  
+<portType name="ClientsPortType">
+	<operation name="listerTous">
+		<input message="typens:listerTousRequest"/>
+		<output message="typens:listerTousResponse"/>
+	</operation>
+	
+	<operation name="listerUn">
+		<input message="typens:listerUnRequest"/>
+		<output message="typens:listerUnResponse"/>
+	</operation>
+	
+	<operation name="ajouterUn">
+		<input message="typens:ajouterUnRequest"/>
+		<output message="typens:ajouterUnResponse"/>
+	</operation>
+
+  <operation name="supprimerUn">
+    <input message="typens:supprimerUnRequest"/>
+    <output message="typens:supprimerUnResponse"/>
+  </operation>
+	
+	<operation name="modifierUn">
+		<input message="typens:modifierUnRequest"/>
+		<output message="typens:modifierUnResponse"/>
+	</operation>
+	
+</portType>
+  
+  
+
+	
+<binding name="ClientsBinding" type="typens:ClientsPortType">
+	<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  
+	<operation name="listerTous">
+		<soap:operation soapAction="urn:ClientsAction"/>
+		<input>
+		<soap:body namespace="urn:clients" use="encoded" 
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		</input>
+		<output>
+		<soap:body namespace="urn:clients" use="encoded" 
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		</output>
+	</operation>
+	
+	<operation name="listerUn">
+		<soap:operation soapAction="urn:ClientsAction"/>
+		<input>
+		<soap:body namespace="urn:clients" use="encoded" 
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		</input>
+		<output>
+		<soap:body namespace="urn:clients" use="encoded" 
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+		</output>
+	</operation>
+
+  <operation name="ajouterUn">
+    <soap:operation soapAction="urn:ClientsAction"/>
+    <input>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </input>
+    <output>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </output>
+  </operation>
+
+  <operation name="supprimerUn">
+    <soap:operation soapAction="urn:ClientsAction"/>
+    <input>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </input>
+    <output>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </output>
+  </operation>
+
+  <operation name="modifierUn">
+    <soap:operation soapAction="urn:ClientsAction"/>
+    <input>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </input>
+    <output>
+      <soap:body namespace="urn:clients" use="encoded"
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </output>
+  </operation>
+	
+</binding>
+
+
+  
+<service name="WSClient">
+	<port name="ClientsPortType" binding="typens:ClientsBinding">
+		<soap:address location="http://localhost/eclipse_projets/WebService/donnees/serverSOAP.php"/>
+	</port>
+</service>
+</definitions>
